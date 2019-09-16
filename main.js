@@ -41,7 +41,7 @@ var app = http.createServer(function(request,response){
           var title = 'Welcome';
           var description = 'Hello, Node.js';
           var list = templateList(filelist);
-          var template = templateHTML(title, list, `<h2>${title}</h2>$${description}`);
+          var template = templateHTML(title, list, `<h2>${title}</h2>${description}`);
           response.writeHead(200);
           response.end(template);
         })   
@@ -50,7 +50,7 @@ var app = http.createServer(function(request,response){
           fs.readFile(`data/${queryData.id}`, 'utf8', function(err, description){
             var title = queryData.id;
             list = templateList(filelist);
-            var template = templateHTML(title, list, `<h2>${title}</h2>$${description}`);
+            var template = templateHTML(title, list, `<h2>${title}</h2>${description}`);
             response.writeHead(200);
             response.end(template); 
           });
